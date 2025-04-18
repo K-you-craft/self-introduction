@@ -1,10 +1,166 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<html lang="ja">
 
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>楊嘉琳 - 自己紹介</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+	<header>
+		<a href="#" class="logo">About Me</a>
+		<ul>
+			<li><a href="#" class="active">Home</a></li>
+			<li><a href="#about">About</a></li>
+			<li><a href="#skills">Hobby</a></li>
+			<li><a href="#work">Work</a></li>
+			<li><a href="#contact">Contact</a></li>
+		</ul>
+		<div class="menu-toggle">
+			<i class="fas fa-bars"></i>
+		</div>
+	</header>
+
+	<section class="parallax">
+		<img src="images/stars.png" id="stars">
+		<img src="images/moon.png" id="moon">
+		<img src="images/mountains_behind.png" id="mountains_behind">
+		<img src="images/mountains_front.png" id="mountains_front">
+	</section>
+
+	
+	<div class="container">
+		<section id="about" class="section">
+			<div class="content">
+				<h2>自己紹介</h2>
+				<p>こんにちは！楊嘉琳と申します。</p>
+				<p>現在は東京を拠点に活動しています。中国出身で、大学の専攻はプロダクトデザインでした。</p>
+				<p>大学を卒業してから、ゲームに興味深いので、デザインとしてゲームの会社に働きました。</p>
+				<p>ゲーム系の残業はひどかった、そして残業費がなくて、やめたら日本に逃げました</p>
+				<p>2025年専門学校から卒業してから、株式会社クラフトに働いています。</p>
+
+				<div class="social-icons">
+					<a href="#"><i class="fab fa-github"></i></a>
+					<a href="#"><i class="fab fa-linkedin"></i></a>
+					<a href="#"><i class="fab fa-twitter"></i></a>
+					<a href="#"><i class="fab fa-instagram"></i></a>
+				</div>
+			</div>
+			<div class="profile-img">
+				<img src="images/head.jpg" alt="プロフィール画像">
+			</div>
+		</section>
+
+		<section id="hobby" class="section dark">
+			<h2>趣味</h2>
+			<div class="hobby-container">
+				<div class="hobby-card">
+					<div class="hobby-icon">
+						<i class="fas fa-paint-brush"></i>
+					</div>
+					<h3>絵画</h3>
+					<p>デジタルとアナログ両方の絵画を楽しんでいます。特に風景画とキャラクターデザインが好きです。</p>
+				</div>
+				<div class="hobby-card">
+					<div class="hobby-icon">
+						<i class="fas fa-gamepad"></i>
+					</div>
+					<h3>ゲーム</h3>
+					<p>インディーゲームからAAAタイトルまで幅広くプレイします。ゲームデザインの研究も兼ねています。</p>
+				</div>
+				<div class="hobby-card">
+					<div class="hobby-icon">
+						<i class="fas fa-code"></i>
+					</div>
+					<h3>ギター</h3>
+					<p>趣味で小さなアプリやゲームを作成しています。最近はThree.jsに興味があります。</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="work" class="section">
+			<h2>作品</h2>
+			<div class="portfolio-filter">
+				<button class="filter-btn active" data-filter="all">すべて</button>
+				<button class="filter-btn" data-filter="design">デザイン</button>
+				<button class="filter-btn" data-filter="code">プログラミング</button>
+			</div>
+			<div class="portfolio">
+				<div class="portfolio-item" data-category="design">
+					<img src="images/work1.jpg" alt="デザイン作品1">
+					<span class="portfolio-badge badge-design">デザイン</span>
+					<div class="portfolio-overlay">
+						<h3>キャラクターデザイン</h3>
+						<p>モバイルゲーム用のキャラクターコンセプトアート</p>
+						<div class="portfolio-links">
+							<a href="#" class="portfolio-link">詳細</a>
+							<a href="#" class="portfolio-link">ギャラリー</a>
+						</div>
+					</div>
+				</div>
+				<div class="portfolio-item" data-category="code">
+					<img src="images/work2.jpg" alt="プログラミング作品1">
+					<span class="portfolio-badge badge-code">コード</span>
+					<div class="portfolio-overlay">
+						<h3>3Dポートフォリオサイト</h3>
+						<p>Three.jsを使用したインタラクティブなポートフォリオ</p>
+						<div class="portfolio-links">
+							<a href="#" class="portfolio-link">デモ</a>
+							<a href="#" class="portfolio-link">GitHub</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<section id="orther" class="section dark">
+			<h2>その他</h2>
+			<div class="hobby-container">
+				<div class="hobby-card">
+					<div class="hobby-icon">
+						<i class="fas fa-paint-brush"></i>
+					</div>
+					<h3>旅行写真</h3>
+					<p>デジタルとアナログ両方の絵画を楽しんでいます。特に風景画とキャラクターデザインが好きです。</p>
+				</div>
+				<div class="hobby-card">
+				</div>
+			</div>
+		</section>
+
+
+		<section id="contact" class="section dark">
+			<h2>連絡先</h2>
+			<div class="contact-container">
+				<div class="contact-info">
+					<h3>お問い合わせ</h3>
+					<p><i class="fas fa-envelope"></i> jialinyang@craft-net.co.jp</p>
+					<p><i class="fas fa-phone"></i> 080-1234-5678</p>
+					<p><i class="fas fa-map-marker-alt"></i> 東京都千代田区</p>
+				</div>
+				<form class="contact-form">
+					<input type="text" placeholder="お名前" required>
+					<input type="email" placeholder="メールアドレス" required>
+					<textarea placeholder="メッセージ" required></textarea>
+					<button type="submit">送信</button>
+				</form>
+			</div>
+		</section>
+	</div>
+
+	<footer>
+		<p>&copy; 2025 楊嘉琳. All Rights Reserved.</p>
+		<div class="back-to-top">
+			<i class="fas fa-arrow-up"></i>
+		</div>
+	</footer>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="js/main.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,719 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+	--primary-dark: #1c0522;
+	--primary-purple: #2b1055;
+	--primary-blue: #7597de;
+	--accent-purple: #6e48aa;
+	--accent-blue: #4a90e2;
+	--light-gray: #e0e0e0;
+	--medium-gray: #a0a0a0;
+	--dark-gray: #333333;
+	--text-light: #ffffff;
+	--text-dark: #222222;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'Noto Sans JP', 'Poppins', sans-serif;
+	background-color: var(--primary-dark);
+	color: var(--text-light);
+	overflow-x: hidden;
+	line-height: 1.6;
+}
+
+
+/*=========================================
+ ヘッダー 
+ ==========================================*/
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 20px 100px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 1000;
+	background-color: rgba(28, 5, 34, 0.8);
+	backdrop-filter: blur(10px);
+	transition: all 0.3s ease;
+}
+
+header.scrolled {
+	padding: 15px 100px;
+	background-color: rgba(43, 16, 85, 0.95);
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+header .logo {
+	color: var(--text-light);
+	font-weight: 700;
+	text-decoration: none;
+	font-size: 2em;
+	letter-spacing: 2px;
+	transition: all 0.3s ease;
+}
+
+header ul {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+header ul li {
+	list-style: none;
+	margin-left: 30px;
+}
+
+header ul li a {
+	text-decoration: none;
+	padding: 8px 20px;
+	color: var(--text-light);
+	border-radius: 20px;
+	font-weight: 500;
+	transition: all 0.3s ease;
+	position: relative;
+}
+
+header ul li a::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 2px;
+	background: var(--accent-blue);
+	transition: all 0.3s ease;
+	transform: translateX(-50%);
+}
+
+header ul li a:hover::after,
+header ul li a.active::after {
+	width: 50%;
+}
+
+header ul li a:hover,
+header ul li a.active {
+	color: var(--light-gray);
+}
+
+.menu-toggle {
+	display: none;
+	cursor: pointer;
+	font-size: 1.5rem;
+	color: var(--text-light);
+}
+
+
+
+/*========================================= 
+バナーセクション 
+=========================================*/
+.parallax {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	padding: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	background: linear-gradient(135deg, var(--primary-purple), var(--primary-dark));
+}
+
+.parallax::before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 100px;
+	background: linear-gradient(to top, var(--primary-dark), transparent);
+	z-index: 1000;
+}
+
+.parallax img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	pointer-events: none;
+}
+
+.parallax img#moon {
+	mix-blend-mode: screen;
+	opacity: 0.8;
+}
+
+.parallax img#mountains_front {
+	z-index: 10;
+}
+
+#text {
+	position: absolute;
+	white-space: nowrap;
+	font-size: 7vw;
+	z-index: 9;
+	color: var(--text-light);
+	text-shadow: 0 0 20px rgba(117, 151, 222, 0.5);
+	opacity: 0;
+	transform: translateX(100px);
+	animation: slideIn 1.5s forwards 0.5s;
+}
+
+@keyframes slideIn {
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+#btn {
+	text-decoration: none;
+	display: inline-block;
+	padding: 12px 40px;
+	border-radius: 40px;
+	background: var(--text-light);
+	color: var(--primary-purple);
+	font-size: 1.2em;
+	font-weight: 600;
+	z-index: 9;
+	transform: translateY(100px);
+	transition: all 0.3s ease;
+	opacity: 0;
+	animation: fadeInUp 1s forwards 1.5s;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#btn:hover {
+	background: var(--accent-blue);
+	color: var(--text-light);
+	transform: translateY(95px) scale(1.05);
+}
+
+@keyframes fadeInUp {
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/*========================================= 
+ メインコンテンツ
+========================================= */
+.container {
+	position: relative;
+	z-index: 1;
+}
+
+.section {
+	padding: 100px;
+	position: relative;
+}
+
+.section.dark {
+	background-color: var(--primary-purple);
+}
+
+.section h2 {
+	font-size: 3em;
+	margin-bottom: 50px;
+	color: var(--text-light);
+	position: relative;
+	display: inline-block;
+}
+
+.section h2::after {
+	content: '';
+	position: absolute;
+	bottom: -10px;
+	left: 0;
+	width: 80px;
+	height: 4px;
+	background: linear-gradient(to right, var(--accent-blue), var(--accent-purple));
+}
+
+/*=======================================
+ アバウトセクション 
+ ========================================*/
+#about {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 50px;
+}
+
+#about .content {
+	flex: 1;
+}
+
+#about .profile-img {
+	flex: 1;
+	max-width: 400px;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+}
+
+#about .profile-img img {
+	width: 100%;
+	height: auto;
+	display: block;
+	transition: transform 0.5s ease;
+}
+
+#about .profile-img:hover img {
+	transform: scale(1.05);
+}
+
+#about p {
+	margin-bottom: 20px;
+	font-size: 1.1em;
+	line-height: 1.8;
+}
+
+.social-icons {
+	margin-top: 30px;
+	display: flex;
+	gap: 20px;
+}
+
+.social-icons a {
+	color: var(--text-light);
+	font-size: 1.5em;
+	transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+	color: var(--accent-blue);
+	transform: translateY(-5px);
+}
+
+/*========================================= 
+ 趣味セクション 
+ ========================================= */
+.hobby-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 30px;
+	margin-top: 50px;
+}
+
+.hobby-card {
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(5px);
+	border-radius: 15px;
+	padding: 30px;
+	transition: all 0.3s ease;
+	box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+	text-align: center;
+}
+
+.hobby-card:hover {
+	transform: translateY(-10px);
+	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hobby-icon {
+	font-size: 3rem;
+	margin-bottom: 20px;
+	color: var(--accent-blue);
+}
+
+.hobby-card h3 {
+	color: var(--text-light);
+	margin-bottom: 15px;
+	font-size: 1.5rem;
+}
+
+.hobby-card p {
+	color: var(--light-gray);
+	font-size: 1rem;
+}
+
+/*========================================= 
+ 作品集セクション 
+ ========================================= */
+.portfolio {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+	gap: 30px;
+	margin-top: 50px;
+}
+
+.portfolio-filter {
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+	margin-bottom: 30px;
+}
+
+.filter-btn {
+	padding: 8px 20px;
+	background: rgba(255, 255, 255, 0.1);
+	color: var(--text-light);
+	border: none;
+	border-radius: 30px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+	background: var(--accent-blue);
+	color: var(--text-light);
+}
+
+.portfolio-item {
+	position: relative;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+	transition: all 0.3s ease;
+}
+
+.portfolio-item img {
+	width: 100%;
+	height: 250px;
+	object-fit: cover;
+	display: block;
+	transition: transform 0.5s ease;
+}
+
+.portfolio-badge {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	padding: 5px 15px;
+	border-radius: 20px;
+	font-size: 0.8rem;
+	font-weight: bold;
+}
+
+.badge-design {
+	background: var(--accent-purple);
+}
+
+.badge-code {
+	background: var(--accent-blue);
+}
+
+.portfolio-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(43, 16, 85, 0.9);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+	transition: all 0.3s ease;
+	padding: 20px;
+	text-align: center;
+}
+
+.portfolio-overlay h3 {
+	color: var(--text-light);
+	font-size: 1.5rem;
+	margin-bottom: 10px;
+	transform: translateY(20px);
+	transition: all 0.3s ease;
+}
+
+.portfolio-overlay p {
+	color: var(--light-gray);
+	margin-bottom: 20px;
+	transform: translateY(20px);
+	transition: all 0.3s ease;
+	transition-delay: 0.1s;
+}
+
+.portfolio-links {
+	display: flex;
+	gap: 15px;
+	transform: translateY(20px);
+	transition: all 0.3s ease;
+	transition-delay: 0.2s;
+}
+
+.portfolio-link {
+	display: inline-block;
+	padding: 8px 20px;
+	background: var(--accent-blue);
+	color: var(--text-light);
+	text-decoration: none;
+	border-radius: 30px;
+	font-size: 0.9rem;
+	transition: all 0.3s ease;
+}
+
+.portfolio-link:hover {
+	background: var(--text-light);
+	color: var(--primary-purple);
+}
+
+.portfolio-item:hover .portfolio-overlay {
+	opacity: 1;
+}
+
+.portfolio-item:hover .portfolio-overlay h3,
+.portfolio-item:hover .portfolio-overlay p,
+.portfolio-item:hover .portfolio-links {
+	transform: translateY(0);
+}
+
+.portfolio-item:hover img {
+	transform: scale(1.1);
+}
+
+/*========================================= 
+ 連絡先セクション 
+ ========================================= */
+.contact-container {
+	display: flex;
+	justify-content: space-between;
+	gap: 50px;
+	margin-top: 50px;
+}
+
+.contact-info {
+	flex: 1;
+	background: rgba(255, 255, 255, 0.1);
+	padding: 40px;
+	border-radius: 10px;
+	backdrop-filter: blur(5px);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.contact-info h3 {
+	color: var(--text-light);
+	margin-bottom: 30px;
+	font-size: 1.8em;
+}
+
+.contact-info p {
+	margin-bottom: 20px;
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	font-size: 1.1em;
+}
+
+.contact-info i {
+	width: 30px;
+	height: 30px;
+	background: var(--accent-blue);
+	color: var(--text-light);
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.contact-form {
+	flex: 1;
+	background: rgba(255, 255, 255, 0.1);
+	padding: 40px;
+	border-radius: 10px;
+	backdrop-filter: blur(5px);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form input,
+.contact-form textarea {
+	width: 100%;
+	padding: 15px;
+	margin-bottom: 20px;
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 5px;
+	color: var(--text-light);
+	font-size: 1em;
+	transition: all 0.3s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+	color: var(--light-gray);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+	outline: none;
+	border-color: var(--accent-blue);
+	background: rgba(255, 255, 255, 0.2);
+}
+
+.contact-form textarea {
+	height: 150px;
+	resize: none;
+}
+
+.contact-form button {
+	background: var(--accent-blue);
+	color: var(--text-light);
+	border: none;
+	padding: 15px 40px;
+	border-radius: 30px;
+	font-size: 1em;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+	background: var(--accent-purple);
+	transform: translateY(-3px);
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/*========================================= 
+ フッター 
+ ========================================= */
+footer {
+	position: relative;
+	padding: 30px 100px;
+	background: var(--primary-dark);
+	text-align: center;
+	color: var(--medium-gray);
+	font-size: 0.9em;
+}
+
+.back-to-top {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	width: 50px;
+	height: 50px;
+	background: var(--accent-blue);
+	color: var(--text-light);
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.3s ease;
+	z-index: 999;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.back-to-top.active {
+	opacity: 1;
+	visibility: visible;
+}
+
+.back-to-top:hover {
+	background: var(--accent-purple);
+	transform: translateY(-5px);
+}
+
+/*========================================= 
+ レスポンシブデザイン 
+ ========================================= */
+@media (max-width: 1200px) {
+	header {
+		padding: 20px 50px;
+	}
+
+	.section {
+		padding: 80px 50px;
+	}
+
+	#about {
+		flex-direction: column;
+	}
+
+	#about .profile-img {
+		margin-top: 50px;
+		max-width: 100%;
+	}
+
+	.hobby-container {
+		flex-direction: column;
+	}
+
+	.contact-container {
+		flex-direction: column;
+	}
+}
+
+@media (max-width: 768px) {
+	header {
+		padding: 15px 30px;
+	}
+
+	header ul {
+		position: fixed;
+		top: 80px;
+		left: -100%;
+		width: 100%;
+		height: calc(100vh - 80px);
+		background: var(--primary-purple);
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-start;
+		padding-top: 50px;
+		transition: all 0.5s ease;
+	}
+
+	header ul.active {
+		left: 0;
+	}
+
+	header ul li {
+		margin: 20px 0;
+	}
+
+	.menu-toggle {
+		display: block;
+	}
+
+	.section {
+		padding: 60px 30px;
+	}
+
+	.section h2 {
+		font-size: 2.5em;
+	}
+
+	.portfolio {
+		grid-template-columns: 1fr;
+	}
+
+	#text {
+		font-size: 10vw;
+	}
+}
+
+@media (max-width: 480px) {
+	header {
+		padding: 15px 20px;
+	}
+
+	.section {
+		padding: 50px 20px;
+	}
+
+	.section h2 {
+		font-size: 2em;
+	}
+
+	#btn {
+		padding: 10px 30px;
+		font-size: 1em;
+	}
+}
