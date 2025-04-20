@@ -1,21 +1,30 @@
+$(document).ready(function() {
+	$(".slider").slick({
+		dots: false,
+		infinite: true,
+		slidesToShow: 2,
+		slidesToScroll: 1,
+		autoplay: true,
+		autoplaySpeed: 3000
+	});
+});
+
 document.addEventListener('DOMContentLoaded', function() {
-	let stars = document.getElementById('stars');
-	let moon = document.getElementById('moon');
-	let mountains_behind = document.getElementById('mountains_behind');
-	let text = document.getElementById('text');
-	let btn = document.getElementById('btn');
-	let mountains_front = document.getElementById('mountains_front');
+	let plane = document.getElementById('plane');
+	let mountains = document.getElementById('mountains');
+	let behind = document.getElementById('behind');
+	let front = document.getElementById('front');
+	let sky = document.getElementById('sky');
 	let header = document.querySelector('header');
 
 	window.addEventListener('scroll', function() {
 		let value = window.scrollY;
-		stars.style.left = value * 0.25 + 'px';
-		moon.style.top = value * 1.05 + 'px';
-		mountains_behind.style.top = value * 0.5 + 'px';
-		mountains_front.style.top = value * 0 + 'px';
-		text.style.marginRight = value * 4 + 'px';
-		text.style.marginTop = value * 1.5 + 'px';
-		btn.style.marginTop = value * 1.5 + 'px';
+		plane.style.left = value * 0.25 + 'px';
+		plane.style.top = value * 0.15 + 'px'; // 添加飛機垂直移動效果
+		mountains.style.top = value * 0.5 + 'px';
+		behind.style.top = value * 0.25 + 'px';
+		front.style.top = value * 0 + 'px';
+		sky.style.top = value * 0.1 + 'px'; // 添加天空輕微移動效果
 
 		// ヘッダースタイル変更
 		if (value > 100) {
@@ -51,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			this.classList.add('active');
 		});
 	});
+	
 
 	// トップに戻るボタン
 	const backToTopBtn = document.querySelector('.back-to-top');
@@ -135,6 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+
 // 作品フィルター機能
 document.addEventListener('DOMContentLoaded', function() {
 	// 既存のコードはそのまま保持
@@ -168,3 +179,52 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 	}
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+	// モーダル機能
+	const hobbyCards = document.querySelectorAll('.hobby-card');
+	const modals = document.querySelectorAll('.hobby-modal');
+	const closeButtons = document.querySelectorAll('.close-modal');
+
+	// カードクリックでモーダル表示
+	hobbyCards.forEach(card => {
+		card.addEventListener('click', function() {
+			const modalId = this.getAttribute('data-modal');
+			if (modalId) {
+				document.getElementById(modalId).style.display = 'block';
+				document.body.style.overflow = 'hidden'; // スクロール防止
+			}
+		});
+	});
+
+	// モーダル閉じる
+	closeButtons.forEach(btn => {
+		btn.addEventListener('click', function() {
+			this.closest('.hobby-modal').style.display = 'none';
+			document.body.style.overflow = 'auto';
+		});
+	});
+
+	// モーダル外側クリックで閉じる
+	window.addEventListener('click', function(e) {
+		if (e.target.classList.contains('hobby-modal')) {
+			e.target.style.display = 'none';
+			document.body.style.overflow = 'auto';
+		}
+	});
+
+	// ESCキーで閉じる
+	document.addEventListener('keydown', function(e) {
+		if (e.key === 'Escape') {
+			modals.forEach(modal => {
+				modal.style.display = 'none';
+				document.body.style.overflow = 'auto';
+			});
+		}
+	});
+});
+
+
+
+
+

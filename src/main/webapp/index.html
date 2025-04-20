@@ -6,6 +6,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>楊嘉琳 - 自己紹介</title>
 	<link rel="stylesheet" href="css/style.css">
+	<!-- SlickのCSS（CDN） -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+	<!-- icon -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -15,8 +19,9 @@
 		<ul>
 			<li><a href="#" class="active">Home</a></li>
 			<li><a href="#about">About</a></li>
-			<li><a href="#skills">Hobby</a></li>
+			<li><a href="#hobby">Hobby</a></li>
 			<li><a href="#work">Work</a></li>
+			<li><a href="#other">Other</a></li>
 			<li><a href="#contact">Contact</a></li>
 		</ul>
 		<div class="menu-toggle">
@@ -25,61 +30,144 @@
 	</header>
 
 	<section class="parallax">
-		<img src="images/stars.png" id="stars">
-		<img src="images/moon.png" id="moon">
-		<img src="images/mountains_behind.png" id="mountains_behind">
-		<img src="images/mountains_front.png" id="mountains_front">
+		<img src="images/sky.png" id="sky">
+		<img src="images/mountains.png" id="mountains">
+		<img src="images/plane.png" id="plane">
+		<img src="images/behind.png" id="behind">
+		<img src="images/front.png" id="front">
 	</section>
 
-	
-	<div class="container">
-		<section id="about" class="section">
-			<div class="content">
-				<h2>自己紹介</h2>
-				<p>こんにちは！楊嘉琳と申します。</p>
-				<p>現在は東京を拠点に活動しています。中国出身で、大学の専攻はプロダクトデザインでした。</p>
-				<p>大学を卒業してから、ゲームに興味深いので、デザインとしてゲームの会社に働きました。</p>
-				<p>ゲーム系の残業はひどかった、そして残業費がなくて、やめたら日本に逃げました</p>
-				<p>2025年専門学校から卒業してから、株式会社クラフトに働いています。</p>
 
-				<div class="social-icons">
-					<a href="#"><i class="fab fa-github"></i></a>
-					<a href="#"><i class="fab fa-linkedin"></i></a>
-					<a href="#"><i class="fab fa-twitter"></i></a>
-					<a href="#"><i class="fab fa-instagram"></i></a>
+	<div class="container">
+
+		<section class="bubbles-section">
+			<ul class="bubbles">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</section>
+
+
+		<section id="about" class="section">
+			<div class="about-content">
+				<div class="profile-img">
+					<img src="images/head.jpg" alt="プロフィール画像">
+				</div>
+				<div class="about-text">
+					<h2>自己紹介</h2>
+					<p>こんにちは！楊嘉琳と申します。<br>
+						現在は東京を拠点に活動しており、中国出身です。大学ではプロダクトデザインを専攻していました。<br>
+						大学卒業後、ゲーム業界に興味を持ち、ゲーム会社でデザイナーとして働きました。しかし、ゲーム<br>
+						業界の残業が非常に厳しく、残業代も支払われない環境だったため、転職を決意し日本へ来ました。<br>
+						2025年に専門学校を卒業後、現在は株式会社クラフトで働いています。<br>
+
+					<div class="social-icons">
+						<a href="https://github.com/"><i class="fab fa-github"></i></a>
+						<a href="https://www.instagram.com/"><i class="fab fa-linkedin"></i></a>
+						<a href="https://x.com/"><i class="fab fa-twitter"></i></a>
+						<a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+					</div>
 				</div>
 			</div>
-			<div class="profile-img">
-				<img src="images/head.jpg" alt="プロフィール画像">
-			</div>
 		</section>
+
+
 
 		<section id="hobby" class="section dark">
 			<h2>趣味</h2>
 			<div class="hobby-container">
-				<div class="hobby-card">
+				<button class="hobby-card" data-modal="painting-modal">
 					<div class="hobby-icon">
 						<i class="fas fa-paint-brush"></i>
 					</div>
 					<h3>絵画</h3>
-					<p>デジタルとアナログ両方の絵画を楽しんでいます。特に風景画とキャラクターデザインが好きです。</p>
-				</div>
-				<div class="hobby-card">
+					<p>デジタルとアナログ両方の絵画を楽しんでいます</p>
+				</button>
+				<button class="hobby-card" data-modal="game-modal">
 					<div class="hobby-icon">
 						<i class="fas fa-gamepad"></i>
 					</div>
 					<h3>ゲーム</h3>
-					<p>インディーゲームからAAAタイトルまで幅広くプレイします。ゲームデザインの研究も兼ねています。</p>
-				</div>
-				<div class="hobby-card">
+					<p>ゲームデザインの研究も兼ねています。</p>
+				</button>
+				<button class="hobby-card" data-modal="guitar-modal">
 					<div class="hobby-icon">
-						<i class="fas fa-code"></i>
+						<i class="fas fa-guitar"></i>
 					</div>
 					<h3>ギター</h3>
-					<p>趣味で小さなアプリやゲームを作成しています。最近はThree.jsに興味があります。</p>
-				</div>
+					<p>音楽が好きで、特にギターの音が好き</p>
+				</button>
 			</div>
 		</section>
+
+
+		<!-- Modal構造 -->
+		<div id="painting-modal" class="hobby-modal">
+			<div class="modal-content">
+				<span class="close-modal">&times;</span>
+				<h3>絵画</h3>
+				<div class="modal-gallery">
+					<div id="pictrue">
+						<img src="images/dragonball.jpg" alt="絵画1">
+						<img src="images/aburae.jpg" alt="絵画2">
+						<img src="images/yusongzeng.jpg" alt="絵画3">
+					</div>
+					<p> 絵を描くことに関して、私が絵を好きになった理由は子供の頃から漫画、特に『ドラゴンボール』
+						が大好きだったからです。この漫画は私の子供時代全体を通しての友でした。当時はクラス中の
+						皆がこの漫画に夢中で、みんな漫画の真似をして自分だけの漫画を描いていました。私も同じで、
+						自分で考えた物語を絵にしていました。その後大学に進学し、油画部に入部しました。<br>
+						大学卒業後はゲームキャラクターや背景のデザインに携わるようになりました。 仕事だけど、
+						週末でも絵を描いていました。
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div id="game-modal" class="hobby-modal">
+			<div class="modal-content">
+				<span class="close-modal">&times;</span>
+				<h3>ゲーム</h3>
+				<div class="modal-gallery">
+					<div id="pictrue">
+						<img src="images/steam.png" alt="絵画1">
+						<img src="images/tsushima.jpg" alt="絵画2">
+						<img src="images/game.jpg" alt="絵画3">
+					</div>
+					<p> 私はSteamのゲームをプレイするのが好きで、たまに友達と一緒に遊びます。
+						好きなゲームのジャンルはアクションアドベンチャーゲームで、
+						操作スキルが問われるものが多いです。別にプロプレイヤーと
+						いうわけではありませんが、週末にリラックスするための良い方法だと思っています。
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div id="guitar-modal" class="hobby-modal">
+			<div class="modal-content">
+				<span class="close-modal">&times;</span>
+				<h3>ギター</h3>
+				<div class="modal-gallery">
+					<div id="pictrue">
+						<img src="images/oshioCoutaro.png" alt="絵画1">
+						<img src="images/kishibeMassaki.jpg" alt="絵画2">
+					</div>
+					<p>ギターは2年前に日本で独学で始めました。勉強が忙しくて練習できたり
+						できなかったりですが、なんとか2年続いています。まだ弾ける曲は少ないけど、
+						社会人になっても続けたいです。ちょっとずつの成長が大事だと思ってます！
+					</p>
+				</div>
+			</div>
+		</div>
+
+
 
 		<section id="work" class="section">
 			<h2>作品</h2>
@@ -90,44 +178,74 @@
 			</div>
 			<div class="portfolio">
 				<div class="portfolio-item" data-category="design">
-					<img src="images/work1.jpg" alt="デザイン作品1">
-					<span class="portfolio-badge badge-design">デザイン</span>
+					<img src="images/head.jpg" alt="デザイン作品1">
+					<span class="portfolio-badge badge-design">キャラクターデザイン</span>
 					<div class="portfolio-overlay">
-						<h3>キャラクターデザイン</h3>
-						<p>モバイルゲーム用のキャラクターコンセプトアート</p>
-						<div class="portfolio-links">
-							<a href="#" class="portfolio-link">詳細</a>
-							<a href="#" class="portfolio-link">ギャラリー</a>
-						</div>
+						<h3>クリックで拡大表示</h3>
 					</div>
 				</div>
+
+				<div class="portfolio-item" data-category="design">
+					<img src="images/head.jpg" alt="デザイン作品1">
+					<span class="portfolio-badge badge-design">キャラクターデザイン2</span>
+					<div class="portfolio-overlay">
+						<h3>クリックで拡大表示</h3>
+					</div>
+				</div>
+
 				<div class="portfolio-item" data-category="code">
-					<img src="images/work2.jpg" alt="プログラミング作品1">
+					<img src="images/head.jpg" alt="プログラミング作品1">
 					<span class="portfolio-badge badge-code">コード</span>
 					<div class="portfolio-overlay">
-						<h3>3Dポートフォリオサイト</h3>
-						<p>Three.jsを使用したインタラクティブなポートフォリオ</p>
-						<div class="portfolio-links">
-							<a href="#" class="portfolio-link">デモ</a>
-							<a href="#" class="portfolio-link">GitHub</a>
-						</div>
+						<h3>クリックで拡大表示</h3>
 					</div>
 				</div>
 			</div>
 		</section>
 
 
-		<section id="orther" class="section dark">
-			<h2>その他</h2>
-			<div class="hobby-container">
-				<div class="hobby-card">
-					<div class="hobby-icon">
-						<i class="fas fa-paint-brush"></i>
-					</div>
-					<h3>旅行写真</h3>
-					<p>デジタルとアナログ両方の絵画を楽しんでいます。特に風景画とキャラクターデザインが好きです。</p>
+		<!-- Modal構造 -->
+		<div id="art-modal" class="work-modal">
+			<div class="modal-content">
+				<span class="close-modal">&times;</span>
+				<div class="modal-gallery">
+					<img src="images/head.jpg" alt="絵画作品1">
 				</div>
-				<div class="hobby-card">
+			</div>
+		</div>
+
+		<div id="game-modal" class="hobby-modal">
+			<div class="modal-content">
+				<span class="close-modal">&times;</span>
+				<h3>ゲーム</h3>
+				<div class="modal-gallery">
+					<img src="images/head.jpg" alt="絵画作品1">
+					<img src="images/head.jpg" alt="絵画作品2">
+				</div>
+			</div>
+		</div>
+
+
+		<section id="other" class="section dark">
+			<h2>その他</h2>
+			<div class="slider">
+				<div class="slider-item"><img src="images/head.jpg" alt="コーヒー">
+					<h3>コーヒー</h3>
+				</div>
+				<div class="slider-item"><img src="images/head.jpg" alt="ケーキ">
+					<h3>ケーキ</h3>
+				</div>
+				<div class="slider-item"><img src="images/head.jpg" alt="クッキー">
+					<h3>クッキー</h3>
+				</div>
+				<div class="slider-item"><img src="images/head.jpg" alt="クロワッサン">
+					<h3>クロワッサン</h3>
+				</div>
+				<div class="slider-item"><img src="images/head.jpg" alt="アイスクリーム">
+					<h3>アイスクリーム</h3>
+				</div>
+				<div class="slider-item"><img src="images/head.jpg" alt="パンケーキ">
+					<h3>パンケーキ</h3>
 				</div>
 			</div>
 		</section>
@@ -159,7 +277,12 @@
 		</div>
 	</footer>
 
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+	<!-- jQuery（Slickを使うために必要） -->
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+	<!-- SlickのJavaScript（CDN） -->
+	<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<!-- animatedModalのJavaScript -->
 	<script src="js/main.js"></script>
 </body>
 
