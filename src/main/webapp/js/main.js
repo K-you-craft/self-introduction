@@ -20,11 +20,11 @@ document.addEventListener('DOMContentLoaded', function() {
 	window.addEventListener('scroll', function() {
 		let value = window.scrollY;
 		plane.style.left = value * 0.25 + 'px';
-		plane.style.top = value * 0.15 + 'px'; // 添加飛機垂直移動效果
+		plane.style.top = value * 0.15 + 'px'; 
 		mountains.style.top = value * 0.5 + 'px';
 		behind.style.top = value * 0.25 + 'px';
 		front.style.top = value * 0 + 'px';
-		sky.style.top = value * 0.1 + 'px'; // 添加天空輕微移動效果
+		sky.style.top = value * 0.1 + 'px'; 
 
 		// ヘッダースタイル変更
 		if (value > 100) {
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			this.classList.add('active');
 		});
 	});
-	
+
 
 	// トップに戻るボタン
 	const backToTopBtn = document.querySelector('.back-to-top');
@@ -220,6 +220,56 @@ document.addEventListener('DOMContentLoaded', function() {
 				modal.style.display = 'none';
 				document.body.style.overflow = 'auto';
 			});
+		}
+	});
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 获取所有作品项和模态框
+    const portfolioItems = document.querySelectorAll('.portfolio-item, .portfolio-overlay');
+    const modal = document.getElementById('work-modal');
+    const modalImg = modal.querySelector('img');
+    const closeBtn = modal.querySelector('.close-modal');
+    
+    // 为每个作品项和overlay添加点击事件
+    portfolioItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            // 阻止事件冒泡（避免重复触发）
+            e.stopPropagation();
+            
+            // 找到最近的portfolio-item元素
+            const portfolioItem = this.closest('.portfolio-item') || this;
+            
+            const imgSrc = portfolioItem.querySelector('img').src;
+            const imgAlt = portfolioItem.querySelector('img').alt;
+            
+            modalImg.src = imgSrc;
+            modalImg.alt = imgAlt;
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+	// 关闭模态框
+	closeBtn.addEventListener('click', function() {
+		modal.style.display = 'none';
+		document.body.style.overflow = 'auto';
+	});
+
+	// 点击模态框背景也关闭
+	modal.addEventListener('click', function(e) {
+		if (e.target === modal) {
+			modal.style.display = 'none';
+			document.body.style.overflow = 'auto';
+		}
+	});
+
+	// ESC键关闭
+	document.addEventListener('keydown', function(e) {
+		if (e.key === 'Escape' && modal.style.display === 'block') {
+			modal.style.display = 'none';
+			document.body.style.overflow = 'auto';
 		}
 	});
 });
